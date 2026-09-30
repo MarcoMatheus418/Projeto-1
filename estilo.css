@@ -9,7 +9,7 @@ body {
    margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 8px
+    border-radius: 8px;
 } 
 
 h1 {
@@ -32,8 +32,3 @@ ul {
     padding: 0;
 }
 
-li {
-    padding: 8px;
-    border-buttom: 1px solid #eee.
-    margin-top: 5px;
-}
