@@ -1,12 +1,13 @@
 body {
     font-family: Arial, sans-serif;
-    backgroud: #f0f2f5;
+    background: #f0f2f5; 
 }
 
 .container {
     background: #fff;
     width: 100%;
-   margin: 50px auto;
+    max-width: 400px; 
+    margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -14,10 +15,9 @@ body {
 
 h1 {
     text-align: center;
-    
 }
 
-input{
+input {
     width: 70%;
     padding: 8px;
 }
@@ -31,4 +31,3 @@ ul {
     list-style: none;
     padding: 0;
 }
-
