@@ -1,6 +1,6 @@
 const InputTarefa = document.getElementById("InputTarefa");
 const btnAdicionar = document.getElementById("btnAdicionar");
-const listaTarefas = document.geElementaById("listaTarefas");
+const ListaTarefas = document.geElementaById("ListaTarefas");
 const btnTodas = document.getElementById("btnTodas");
 const btnPendentes = document.getElementById("btnPendentes");
 const btnConcluidas = document.getElementById("btnConcluidas");
@@ -17,11 +17,23 @@ function mostrarTarefas(){
     for(const i = 0; i<tarefas.length; i++){
         const li = document.creatElement("li");
         li.innerHTML = tarefas[i].nome + <button onclick= ´apagar(" + i + ")´>x</button>;
-        listaTarefas.appendChild(li);
+        ListaTarefas.appendChild(li);
+    }
 
+}
 
+btnAdicionar.onclick = function(){
+    const texto = InputTarefa.value;
 
+    if(texto == ""){
+        alert("Digite uma tarefa");
+        return;
+    }
 
+    const nova = {
+        nome: texto,
+        concluida: false
+    };
 
-
-
+    tarefas.push(nova);
+    localStorage.setItem("listaSalva", JSON.stringify(tarefas));
