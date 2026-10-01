@@ -37,3 +37,15 @@ btnAdicionar.onclick = function(){
 
     tarefas.push(nova);
     localStorage.setItem("listaSalva", JSON.stringify(tarefas));
+
+    InputTarefa.value = "";
+    mostrarTarefas();
+}
+
+function apagar(pos){
+    tarefas.splice(pos, 1);
+    localStorage.setItem("listaSalva", JSON.stringify(tarefas));
+    mostrarTarefas();
+}
+
+mostrarTarefas();
