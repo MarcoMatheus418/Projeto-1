@@ -1,6 +1,6 @@
 const InputTarefa = document.getElementById("InputTarefa");
 const btnAdicionar = document.getElementById("btnAdicionar");
-const ListaTarefas = document.geElementaById("ListaTarefas");
+const ListaTarefas = document.geElementaById("listaTarefas");
 const btnTodas = document.getElementById("btnTodas");
 const btnPendentes = document.getElementById("btnPendentes");
 const btnConcluidas = document.getElementById("btnConcluidas");
@@ -17,7 +17,7 @@ function mostrarTarefas(){
     for(const i = 0; i<tarefas.length; i++){
         const li = document.creatElement("li");
         li.innerHTML = tarefas[i].nome + <button onclick= ´apagar(" + i + ")´>x</button>;
-        ListaTarefas.appendChild(li);
+        listaTarefas.appendChild(li);
     }
 
 }
