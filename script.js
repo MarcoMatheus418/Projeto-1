@@ -1,4 +1,7 @@
 const InputTarefa = document.getElementById("InputTarefa");
+const InputDescricao = document.getElementById("ImputDescricao");
+const InputData = document.getElementById("imputData");
+const SelectPrioridade = document.getElementById("ImputPrioridade");
 const btnAdicionar = document.getElementById("btnAdicionar");
 const listaTarefas = document.getElementById("listaTarefas");
 const btnTodas = document.getElementById("btnTodas");
@@ -6,7 +9,8 @@ const btnPendentes = document.getElementById("btnPendentes");
 const btnConcluidas = document.getElementById("btnConcluidas");
 
 let tarefas = [];
-let filtroAtual = "todas"; 
+let filtroAtual = "todas";
+let indiceEdicao = -1;
 
 if(localStorage.getItem("listaSalva")){
     tarefas = JSON.parse(localStorage.getItem("listaSalva"));
