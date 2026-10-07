@@ -1,34 +1,102 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #042d6b; 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-.container {
-    background: #fff;
-    width: 100%;
-    max-width: 400px; 
-    margin: 50px auto;
+body {
+    
+    background: linear-gradient(135deg, #000000 20%, #007ec1 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-} 
+    color: #333;
+}
+
+
+.container {
+    background-color: #ffffff; 
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-top: 6px solid #007ec1; 
+}
 
 h1 {
     text-align: center;
-    color: blue;
+    margin-bottom: 20px;
+    color: #000000; 
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-input {
-    width: 70%;
-    padding: 8px;
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
 }
 
-button {
-    padding: 8px;
+#InputTarefa {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #cccccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
+    background-color: #f9f9f9;
+}
+
+#InputTarefa:focus {
+    border-color: #007ec1; 
+    box-shadow: 0 0 5px rgba(0, 126, 193, 0.3);
+}
+
+#btnAdicionar {
+    background-color: #007ec1; 
+    color: #ffffff; 
+    border: none;
+    padding: 0 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+#btnAdicionar:hover {
+    background-color: #000000; 
 }
+
+#btnAdicionar:active {
+    transform: scale(0.95);
+}
+
+
+.filtros {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background: #eeeeee;
+    padding: 6px;
+    border-radius: 8px;
+}
+
+.filtros button {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 8px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-

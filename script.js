@@ -1,32 +1,44 @@
 const InputTarefa = document.getElementById("InputTarefa");
 const btnAdicionar = document.getElementById("btnAdicionar");
-const ListaTarefas = document.geElementaById("listaTarefas");
+const listaTarefas = document.getElementById("listaTarefas");
 const btnTodas = document.getElementById("btnTodas");
 const btnPendentes = document.getElementById("btnPendentes");
 const btnConcluidas = document.getElementById("btnConcluidas");
 
-const tarefas = [];
+let tarefas = [];
+let filtroAtual = "todas"; 
+
 if(localStorage.getItem("listaSalva")){
     tarefas = JSON.parse(localStorage.getItem("listaSalva"));
-
 }
 
 function mostrarTarefas(){
     listaTarefas.innerHTML = "";    
 
-    for(const i = 0; i<tarefas.length; i++){
-        const li = document.creatElement("li");
-        li.innerHTML = tarefas[i].nome + <button onclick= ´apagar(" + i + ")´>x</button>;
+    for(let i = 0; i < tarefas.length; i++){
+        if(filtroAtual === "pendentes" && tarefas[i].concluida) continue;
+        if(filtroAtual === "concluidas" && !tarefas[i].concluida) continue;
+
+        const li = document.createElement("li"); 
+        
+        const estilo = tarefas[i].concluida ? "text-decoration: line-through; color: gray;" : "";
+        
+        li.innerHTML = `
+            <span style="cursor: pointer; ${estilo}" onclick="alternarConclusao(${i})">
+                ${tarefas[i].nome}
+            </span>
+            <button onclick="apagar(${i})">x</button>
+        `;
+        
         listaTarefas.appendChild(li);
     }
-
 }
 
 btnAdicionar.onclick = function(){
-    const texto = InputTarefa.value;
+    const texto = InputTarefa.value.trim(); 
 
-    if(texto == ""){
-        alert("Digite uma tarefa");
+    if(texto === ""){
+        alert("Digite uma tarefa válida");
         return;
     }
 
@@ -47,5 +59,27 @@ function apagar(pos){
     localStorage.setItem("listaSalva", JSON.stringify(tarefas));
     mostrarTarefas();
 }
+
+function alternarConclusao(pos){
+    tarefas[pos].concluida = !tarefas[pos].concluida; 
+    localStorage.setItem("listaSalva", JSON.stringify(tarefas));
+    mostrarTarefas();
+}
+
+
+btnTodas.onclick = function() { 
+    filtroAtual = "todas"; 
+    mostrarTarefas(); 
+};
+
+btnPendentes.onclick = function() { 
+    filtroAtual = "pendentes"; 
+    mostrarTarefas(); 
+};
+
+btnConcluidas.onclick = function() { 
+    filtroAtual = "concluidas"; 
+    mostrarTarefas(); 
+};
 
 mostrarTarefas();
