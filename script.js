@@ -25,12 +25,22 @@ function mostrarTarefas(){
 
         const li = document.createElement("li"); 
         
-        const estilo = tarefas[i].concluida ? "text-decoration: line-through; color: gray;" : "";
+        const estiloConcluida = tarefas[i].concluida ? "text-decoration: line-through; color: gray;" : "";
+
+        let corPrioridade = "green"; 
+        if (tarefas[i].prioridade === "media") corPrioridade = "orange";
+        if (tarefas[i].prioridade === "alta") corPrioridade = "red";
         
         li.innerHTML = `
-            <span style="cursor: pointer; ${estilo}" onclick="alternarConclusao(${i})">
+        <div style="border-left: 6px solid ${corPrioridade}; padding-left: 10px; margin-bottom: 15px;">
+            <span style="cursor: pointer; font-size: 18px; font-weight: bold; ${estiloConcluida}" onclick="alternarConclusao(${i})">
                 ${tarefas[i].nome}
             </span>
+            ${tarefas[i]descricao ? `<p style=margin: 5px 0; color #555; ${estiloConcluida}>${tarefas[i].descricao}</p>` : ""}
+            
+            <p style="margin: 5px 0; font-size 12px; color: #555; ${estiloConcluida}">
+            Data: ${tarefas[].data ? formatarData(tarefas[i].data) : "Sem data"}
+            </p>
             <button onclick="apagar(${i})">x</button>
         `;
         
